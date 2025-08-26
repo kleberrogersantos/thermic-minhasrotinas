@@ -1,0 +1,158 @@
+<po-page-default id="teste" p-title="Consulta Documentos da OP">
+
+  <div>
+    <po-loading-overlay [hidden]="isHideLoading" p-text="Aguarde"></po-loading-overlay>
+  </div>
+
+  <div class="po-row">
+    <po-input class="po-xl-2 po-lg-2 po-md-4 po-sm-8" p-label="OP" p-disabled="true"
+      [(ngModel)]="orderNumber"></po-input>
+    <po-input class="po-xl-10 po-lg-10 po-md-8 po-sm-12" p-label="Produto" p-disabled="true"
+      [(ngModel)]="orderPartNumber"></po-input>
+  </div>
+
+  <div class="po-row">
+
+    <po-input class="po-xl-2 po-lg-2 po-md-3 po-sm-6" p-label="Emissao" p-disabled="true"
+      [(ngModel)]="orderIssueDate"></po-input>
+    <po-input class="po-xl-2 po-lg-2 po-md-3 po-sm-6" p-label="Encerramento" p-disabled="true"
+      [(ngModel)]="orderCloseDate"></po-input>
+    <po-input class="po-xl-8 po-lg-8 po-md-6 po-sm-12" p-label="Cliente" p-disabled="true"
+      [(ngModel)]="orderCustomer"></po-input>
+
+  </div>
+
+  <po-divider p-label="Documentos Disponíveis"></po-divider>
+
+  <div #avalaibleDocs class="availableDocuments">
+
+
+    <po-widget [hidden]="hiddenList[0]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(0)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[0]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+
+    <po-widget [hidden]="hiddenList[1]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(1)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[1]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[2]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(2)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[2]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+
+    <po-widget [hidden]="hiddenList[3]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(3)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[3]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[4]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(4)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[4]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[5]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(5)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[5]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+
+    <po-widget [hidden]="hiddenList[6]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(6)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[6]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[7]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(7)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[7]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[8]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(8)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[8]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[9]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(9)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[9]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[10]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(10)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[10]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[11]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(11)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[11]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[12]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(12)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[12]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[13]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(13)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[13]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[14]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(14)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[14]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+
+    <po-widget [hidden]="hiddenList[15]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(15)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[15]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[16]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(16)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[16]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[17]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(17)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[17]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[18]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(18)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[18]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+    <po-widget [hidden]="hiddenList[19]" class="po-xl-12 po-lg-12 po-md-12 po-sm-12" p-title="" [p-no-shadow]=true
+      [p-primary]=true (p-click)="downloadDocument(19)">
+      <div class="po-font-subtitle po-text-center">{{documentNames[18]}}</div>
+      <div class="po-text-center">download</div>
+    </po-widget>
+
+  </div>
+
+
+
+</po-page-default>

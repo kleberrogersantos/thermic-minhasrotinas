@@ -1,0 +1,27 @@
+<div class="po-wrapper-menu-panel">
+  <po-toolbar class="po-md-6" [p-title]="mrTitulo"></po-toolbar>
+
+  <po-menu-panel [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png">
+
+  </po-menu-panel>
+
+  <po-page-default [p-title]="title" [p-actions]="actions">
+    <po-loading-overlay [hidden]="isHideLoading" [p-text]="textLoadingOverlay"></po-loading-overlay>
+    <po-divider></po-divider>
+
+    <po-combo #productionCombo p-label="Ordem de Produção" [p-options]="comboItems" [ngModel]="selectedOP"
+      (ngModelChange)="selectedOP" [p-filter-mode]="opFilterMode" (p-change)="onPOSelect($event)">
+    </po-combo>
+    <po-combo p-label=" Cliente" [hidden]="comboCustomerHide" [p-options]="comboCustomer" [ngModel]="selectedCustomer"
+      (ngModelChange)="selectedCustomer = $event " [p-filter-mode]="customerFilterMode"></po-combo>
+    <!-- <po-input p-label="Cliente" [hidden]="inputCustomerHide"></po-input> -->
+
+    <div class="po-row">
+      <div class="po-md-10"></div>
+      <po-button class="po-md-2" p-label="Adicionar Vinculo"
+        [ngStyle]="{'display': relationButtonHide ? 'none' : 'flex'}" (p-click)="onVincularClick()"></po-button>
+      <po-button class="po-md-2" p-label="Remover Vinculo"
+        [ngStyle]="{'display': removeRelationButtonHide ? 'none' : 'flex'}" (p-click)="onRemoverClick()"></po-button>
+    </div>
+  </po-page-default>
+</div>

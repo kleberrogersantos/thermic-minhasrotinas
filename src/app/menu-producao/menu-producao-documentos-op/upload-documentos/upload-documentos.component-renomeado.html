@@ -1,0 +1,18 @@
+<div class="po-wrapper-menu-panel">
+  <po-toolbar class="po-md-12 po-sm-12" [p-title]="mrTitulo"></po-toolbar>
+  <po-menu-panel [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png"></po-menu-panel>
+  <po-page-default p-title="UpdLoad de Documentos">
+    <po-loading-overlay [hidden]="isHideLoading" [p-text]="textLoadingOverlay"></po-loading-overlay>
+    <po-combo p-label="Ordem de Produção" [p-options]="productionOrderList" [p-filter-mode]="filterMode"
+      (p-change)="productionOrderListChange()" [ngModel]="productionId"
+      (ngModelChange)="productionId = $event"></po-combo>
+
+    <po-upload name="upload" p-label="Arquivos *.*" [p-url]="urlUpLoadDocument" [p-headers]="header"
+      (p-upload)="onUploadFile($event)">
+    </po-upload>
+    <po-input p-label="Enviar como" name="sendFileAs" [(ngModel)]="sendFileAs"></po-input>
+
+  </po-page-default>
+
+
+</div>

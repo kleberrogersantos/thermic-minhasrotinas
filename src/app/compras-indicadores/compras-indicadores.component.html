@@ -1,0 +1,79 @@
+<div class="po-wrapper">
+  <po-toolbar class="po-md-12 po-sm-12" [p-title]="mrTitulo"></po-toolbar>
+  <po-menu [p-collapsed]="true" [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png"></po-menu>
+
+  <po-page-default [p-title]="pagetitle" [p-actions]="pageActions">
+    <div class="sample-container">
+      <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
+    </div>
+
+    <po-divider></po-divider>
+
+    <po-tabs>
+      <po-page-slide #parametersPageSlide p-title="Parâmetros" [p-hide-close]="true">
+        <po-input p-label="Da filial" class="po-md-6" [p-maxlength]="4" [(ngModel)]="initialBranch"></po-input>
+        <po-input p-label="Até a filial" class="po-md-6" [p-maxlength]="4" [(ngModel)]="finalBranch"></po-input>
+
+        <po-input p-label="Do Produto" class="po-md-6" [(ngModel)]="initialProductId"></po-input>
+        <po-input p-label="Até o Produto" class="po-md-6" [(ngModel)]="finalProductId"></po-input>
+
+        <po-input p-label="Do Tipo" class="po-md-6" [(ngModel)]="initialType" [p-maxlength]="2"></po-input>
+        <po-input p-label="Até o Tipo" class="po-md-6" [(ngModel)]="finalType" [p-maxlength]="2"></po-input>
+
+        <po-datepicker-range p-label="Período" [(ngModel)]="processingRange"></po-datepicker-range>
+
+        <po-button class="po-md-6" p-label="Cancelar" (p-click)="parametersPageSlide.close()"></po-button>
+        <po-button class="po-md-6" p-label="Confirmar" (p-click)="onRequestSubmit()"></po-button>
+      </po-page-slide>
+
+      <po-tab p-label="Prazo Pagamento" [p-active]="paymentTermActive">
+        <po-table #paymentTermTable [p-columns]="paymentTermColumns" [p-items]="paymentTermItems" [p-height]="380"
+          [p-hide-columns-manager]="true" [p-actions]="paymentTermActions" [p-actions-right]="true"></po-table>
+
+        <po-modal #supplierSummaryModal p-size="xl" p-title="Detalhes Cond Pagto">
+          <po-table #supplierSummaryTable [p-columns]="paymentTermsDetailsColumns" [p-items]="paymentTermsDetailsItems"
+            [p-height]="350" p-hide-columns-manager="true">
+          </po-table>
+
+          <po-modal-footer>
+            <po-button p-label="Exportar" (p-click)="exportSupplierSummary()"></po-button>
+            <po-button p-label="Fechar" (p-click)="supplierSummaryModal.close()"></po-button>
+          </po-modal-footer>
+        </po-modal>
+      </po-tab>
+
+      <po-tab p-label="Desconto Compras">
+        <po-table #purchaseOrdersDiscountTable [p-columns]="purchaseOrdersDiscountColumns"
+          [p-items]="purchaseOrdersDiscountItems" [p-hide-columns-manager]="true" [p-height]="380"></po-table>
+      </po-tab>
+
+      <po-tab p-label="Prazo Entrega/Desvio">
+        <po-table #purchaseOrdersDeliveryTable [p-columns]="purchaseOrdersDeliveryColumns"
+          [p-items]="purchaseOrdersDeliveryItems" [p-height]="380" [p-hide-columns-manager]="true"
+          [p-actions]="purchaseOrdersDeliveryActions" [p-actions-right]="true">
+
+
+
+        </po-table>
+
+        <po-modal #supplierModal p-size="xl" p-title="Detalhes Fornecedor">
+
+          <po-table #supplierDetailsTable [p-columns]="supplierDetailsColumns" [p-items]="supplierDetailsItems"
+            [p-height]="350" p-hide-columns-manager="true"></po-table>
+
+          <po-modal-footer>
+            <po-button p-label="Exportar" (p-click)="exportSupplierDetails()"></po-button>
+            <po-button p-label="Fechar" (p-click)="supplierModal.close()"></po-button>
+          </po-modal-footer>
+
+        </po-modal>
+
+      </po-tab>
+
+      <po-tab p-label="Evolução Preço">
+        <po-table #priceEvolutionTable [p-columns]="priceEvolutionColumns" [p-items]="priceEvolutionItems"
+          [p-height]="380" [p-hide-columns-manager]="true"></po-table>
+      </po-tab>
+    </po-tabs>
+  </po-page-default>
+</div>

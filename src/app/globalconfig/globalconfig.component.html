@@ -1,0 +1,53 @@
+<po-page-default>
+  <form [formGroup]="formGlobal">
+    <po-toolbar [p-title]="appVersion" [p-show-notification]="false"></po-toolbar>
+    <div class="po-md-5">
+      <font class="po-font-title">Olá, {{nomeDoUsuario}} </font>
+    </div>
+    <div id="divImg" class="po-row">
+      <img id="imgLogo" src="/assets/images/logo_minhasrotinas.png" alt="">
+    </div>
+
+    <div class="po-row" style="justify-content: center;">
+
+      <div class="po-row po-lg-12 po-md-12 po-sm-12" style="justify-content: center;">
+        <div class="po-lg-4 po-md-8 po-sm-12">
+          <po-datepicker class="po-md-12" formControlName="formDatabase" name="DataBase" p-format="dd/mm/yyyy"
+            name="datepicker" p-label="Data Base" p-required=true p-auto-focus=true [p-disabled]="bloqueiaDatabase">
+          </po-datepicker>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="po-row" style="justify-content: center;">
+
+
+      <div class="po-row po-lg-12 po-md-12 po-sm-12" style="justify-content: center;">
+        <div class="po-lg-4 po-md-8 po-sm-12">
+          <po-select class="po-md-12" formControlName="formEmpresa" name="combo" p-label="Empresa/Filial"
+            [p-options]="options" [p-required]=true>
+          </po-select>
+        </div>
+      </div>
+
+    </div>
+
+
+  </form>
+
+  <div>
+
+    <div class="po-row po-lg-12 po-md-12 po-sm-12" style="justify-content: center;">
+
+      <div class="po-lg-2 po-md-4 po-sm-12">
+        <po-button p-label="Voltar" class="po-md-12" p-icon="ph ph-arrow-arc-left"
+          (p-click)="voltarClick()"></po-button>
+      </div>
+      <div class="po-lg-2 po-md-4 po-sm-12">
+        <po-button p-label="Confirmar" class="po-md-12" p-icon="ph ph-arrow-arc-right" (p-click)="confirmarClick()"
+          p-kind="primary"></po-button>
+      </div>
+    </div>
+  </div>
+</po-page-default>

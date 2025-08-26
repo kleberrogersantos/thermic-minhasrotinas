@@ -1,0 +1,102 @@
+<div class="po-wrapper">
+
+  <po-toolbar class="po-md-6" [p-title]="mrTitulo"></po-toolbar>
+
+  <po-menu [p-collapsed]="true" [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png">
+  </po-menu>
+
+
+
+
+
+  <po-page-default [p-title]="title" [p-actions]="actions">
+    <po-divider></po-divider>
+    <po-modal #modalDesbloqueiaOP p-title="Desbloquear OP" [p-hide-close]=true>
+
+      Cofirma o desbloqueio da OP {{z3_op}} ?
+
+      <po-modal-footer>
+        <po-button p-label="Confirmar"> </po-button>
+        <po-button p-label="Cancelar" (p-click)="modalDesbloqueiaOP.close()"> </po-button>
+      </po-modal-footer>
+
+    </po-modal>
+
+    <po-modal #modalService p-title="Serviço (Robothermic)" [p-hide-close]=true>
+
+      <po-combo class="po-md-12" name="comboServicos" p-label="Serviços" [p-options]="servicesList" [ngModel]="service"
+        (ngModelChange)="service = $event">
+        >
+      </po-combo>
+
+      <po-input p-label="Detalhamento" [(ngModel)]="serviceDetails"></po-input>
+
+      <po-modal-footer>
+        <po-button p-label="Confirmar" (p-click)="serviceConfirm()"> </po-button>
+        <po-button p-label="Cancelar" (p-click)="modalService.close()"> </po-button>
+      </po-modal-footer>
+
+    </po-modal>
+
+    <form [formGroup]="formApontamentos">
+      <div>
+        <po-loading-overlay [hidden]="isHideLoading" [p-text]="textLoadingOverlay"></po-loading-overlay>
+      </div>
+      <po-modal #modal p-title="Finalizar atividade"> Confirma a finalização desta atividades ? </po-modal>
+      <po-input #inputMatricula formControlName="formMatricula" name="ra_mat" class="po-md-2" p-label="Matricula"
+        [p-maxlength]=6 [p-minlength]=1 (p-change)="matriculaChange()" (p-enter)="matriculaEnter()"
+        [p-no-autocomplete]="true">
+
+      </po-input>
+      <po-input formControlName="formColaborador" class="po-md-10" p-label="Nome" name="ra_nome" p-disabled="true">
+      </po-input>
+      <div class="po-row">&nbsp;</div>
+      <po-input formControlName="formNumeroOP" class="po-md-2" p-label="Número OP" name="sz3_op" [p-maxlength]=11
+        [p-minlength]=1 [p-disabled]="opDesabilitada" (p-change)="opChange()" (p-enter)="opEnter()"
+        [p-no-autocomplete]="true">
+      </po-input>
+
+      <po-input formControlName="formRetrabalho" class="po-md-2" p-label="OP de Retrabalho"
+        p-disabled="true"></po-input>
+
+      <po-combo class="po-md-8" formControlName="formOperacao" name="comboOperacoes" p-label="Operações"
+        [p-options]="listaDeOperacoes" (p-change)="operacaoChange()" [p-disabled]="operacaoDesabilitada"
+        [hidden]="ocultarComboOperacoes">
+      </po-combo>
+      <po-input formControlName="formDescOperacao" class="po-md-8" p-label="Operação" name="sz3_oper"
+        [hidden]="ocultarImputOperacoes" [p-disabled]="DescricaoOperacaoDesabilitada">
+      </po-input>
+
+
+      <div class="po-row">&nbsp;</div>
+      <po-input formControlName="formProduto" class="po-md-2" p-label="Produto" p-disabled="true">
+      </po-input>
+      <po-input formControlName="formDescPro" class="po-md-5" p-label="Descrição Produto" p-disabled="true">
+      </po-input>
+      <po-input formControlName="formMensagem" class="po-md-5" p-label="Status" p-disabled="true">
+      </po-input>
+      <div class="po-row">&nbsp;</div>
+      <po-grid [p-data]="data" [p-columns]="columns"> </po-grid>
+    </form>
+  </po-page-default>
+
+
+
+
+</div>
+
+<po-page-slide #pageSlide p-title="Bloqueio p/ Retrabalho" p-click-out="boolean" [p-size]="sizePageSlide">
+
+  <div>
+    <po-combo p-label="Motivo" [p-options]="listaRetrabalhos" name="motivoRetrabalho" [ngModel]="motivoRetrabalho"
+      (ngModelChange)="motivoRetrabalho = $event"></po-combo>
+    <po-input p-label="O.P. de Retrabalho" name="opRetrabalho" [p-maxlength]="11" [(ngModel)]="opRetrabalho"
+      [p-no-autocomplete]="true"></po-input>
+    <po-input p-label="Observação Retrabalho" name="obsRetrabalho" [(ngModel)]="obsRetrabalho"
+      [p-no-autocomplete]="true"></po-input>
+    <div class="po-md-6">&nbsp;</div>
+    <po-button class="po-md-6" p-label="Enviar bloqueio" (p-click)="blockProduction()"></po-button>
+  </div>
+
+
+</po-page-slide>

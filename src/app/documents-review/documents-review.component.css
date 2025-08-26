@@ -1,0 +1,11 @@
+.po-input {
+  --font-size: 8px;
+  --text-color: red;
+}
+
+
+.divDocument {
+  padding: 10px;
+  background-color: blue;
+  color:red;
+}

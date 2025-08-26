@@ -1,0 +1,70 @@
+<div class="po-wrapper">
+
+  <po-toolbar class="po-md-12 po-sm-12" [p-title]="mrTitulo"></po-toolbar>
+
+  <po-menu [p-collapsed]="true" [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png"></po-menu>
+
+  <po-page-default [p-title]="pagetitle" [p-actions]="pageActions">
+    <div class="sample-container">
+      <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
+    </div>
+
+
+
+    <po-tabs>
+      <po-tab p-label="Cabeçalho" [p-active]="headTabActive" (p-click)="onHeadTabClick()">
+
+        <po-select class="po-lg-6 po-md12 po-sm-12" p-label="Solicitação para:" [p-options]="RequisitionTypeOptions"
+          name="requisitionType" [ngModel]="requisitionType" (ngModelChange)="requisitionType = $event"
+          (p-change)="requisitionTypeChange()">
+
+        </po-select>
+        <po-combo class="po-lg-6 po-md12 po-sm-12" [p-label]="requisitionTitle" [p-options]="requisitionOptions"
+          [p-filter-mode]="1" [ngModel]="requestDestinationValue" [p-disabled]="requestOptionsDisabled"
+          (ngModelChange)="requestDestinationValue = $event"></po-combo>
+
+        <po-combo class="po-lg-6 po-md12 po-sm-12" p-label="Máquina" [p-options]="machineOptions" [p-filter-mode]="1"
+          (p-change)="machineChange()" [ngModel]="machineValue" (ngModelChange)="machineValue = $event"></po-combo>
+        <po-combo class="po-lg-6 po-md12 po-sm-12" p-label="Matrícula" [p-options]="employeeOptions" [p-filter-mode]="1"
+          [ngModel]="employeeValue" (ngModelChange)="employeeValue = $event"></po-combo>
+
+      </po-tab>
+      <po-tab p-label="Produtos" [p-active]="productTabActive" (p-click)="onProductTabClick()">
+
+        <po-modal p-size="xl" [p-title]="modalTile" name="poModal" [p-hide-close]="true">
+
+          <po-table name="tableFilter" [p-selectable]="true" p-single-select="true" p-components-size="small"
+            [p-height]="210" [p-columns]="tableFilterColumns" p-hide-table-search="false" [p-filter-type]="1"
+            [p-items]="tableFilterItems" p-hide-columns-manager="true" [p-filtered-columns]="filteredColumns"
+            (p-selected)="onProductSelect($event)"></po-table>
+
+          <po-number class="po-lg-6 po-md6 po-sm-12" name="quantityAdd" p-label="Quantidade" [(ngModel)]="quantityAdd">
+          </po-number>
+          <po-input class="po-lg-6 po-md6 po-sm-12" name="warehouseLocation" p-label="Local Estoque"
+            [(ngModel)]="warehouseLocation"></po-input>
+
+          <po-modal-footer>
+            <div class="po-row"><po-checkbox name="checkbox" p-label="Somente c/ Saldo"
+                [p-checkboxValue]="availableProducts" (p-change)="productsFilter()"> </po-checkbox></div>
+            <po-button p-label="Fechar" (p-click)="poModal.close()"> </po-button>
+            <po-button p-label="Confirmar" p-kind="primary" (p-click)="modalConfirm()"> </po-button>
+          </po-modal-footer>
+
+        </po-modal>
+
+        <po-table [p-columns]="productTableColumns" [p-items]="productTableItems" [p-actions]="productTableActions"
+          [p-actions-right]="true" p-hide-columns-manager="true">
+        </po-table>
+
+        <!-- <div class="po-row"><br></div>
+        <div class="po-lg-10 po-md10 posm-10"><br></div> -->
+        <!-- <po-button p-icon="ph ph-plus-circle" p-label="Adicionar" class="po-lg-2 po-md2 posm-2" p-kind="primary"
+          (p-click)="modalOpen()"></po-button> -->
+
+
+
+      </po-tab>
+    </po-tabs>
+
+  </po-page-default>
+</div>

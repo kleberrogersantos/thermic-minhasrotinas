@@ -1,0 +1,31 @@
+<div class="po-wrapper">
+  <po-toolbar class="po-md-12 po-sm-12" [p-title]="mrTitulo"></po-toolbar>
+  <po-menu [p-collapsed]="true" [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png"></po-menu>
+
+  <po-page-default p-title="Consulta Solicitações" [p-actions]="pageActions">
+    <po-loading-overlay [hidden]="isHideLoading" [p-size]="'large'" [p-text]="textLoading"></po-loading-overlay>
+
+    <po-page-slide #slideParams p-title="Parâmetros">
+      <div class="po-row">
+        <po-input class="po-md-6" p-label="Da filial" [(ngModel)]="params.initialBranch"></po-input>
+        <po-input class="po-md-6" p-label="Até a filial" [(ngModel)]="params.finalBranch"></po-input>
+        <po-datepicker class="po-md-6" p-label="Data Inicial" [(ngModel)]="params.initialDate"></po-datepicker>
+        <po-datepicker class="po-md-6" p-label="Data Final" [(ngModel)]="params.finalDate"></po-datepicker>
+        <po-input class="po-md-6" p-label="Solicitação Inicial" [(ngModel)]="params.initialRequest"
+          (ngModelChange)="copyRequest()"></po-input>
+        <po-input class="po-md-6" p-label="Solicitação Final" [(ngModel)]="params.finalRequest"></po-input>
+      </div>
+
+      <div class="po-row">
+        <div class="po-md-6">
+          <po-button p-label="Cancelar" (p-click)="cancelParams()"></po-button>
+        </div>
+        <div class="po-md-6">
+          <po-button p-label="Confirmar" p-primary (p-click)="confirmParams()"></po-button>
+        </div>
+      </div>
+    </po-page-slide>
+
+    <po-table [p-columns]="columns" [p-items]="items" [p-height]="400" p-hide-table-search="false"></po-table>
+  </po-page-default>
+</div>
