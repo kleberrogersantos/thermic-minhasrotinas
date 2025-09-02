@@ -4,7 +4,7 @@ import { firstValueFrom } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PurchaseTrackingServiceService {
-  url: string = 'http://192.168.0.11:9995/minhasrotinas';
+  url: string = sessionStorage.getItem('mrHost') + 'minhasrotinas';
 
   constructor(private http: HttpClient) { }
 

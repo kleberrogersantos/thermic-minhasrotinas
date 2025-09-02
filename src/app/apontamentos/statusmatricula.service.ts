@@ -32,9 +32,9 @@ export class StatusmatriculaService {
     };
 
 
-
+    const url = sessionStorage.getItem('mrHost') + 'minhasrotinas';
     this.http.get<statusApontamentos>(
-      'http://192.168.0.11:9995/minhasrotinas/statusmatricula?filial=' + this.mrCodigoEmpresa + '&matricula=' + matricula, //url
+      url + '/statusmatricula?filial=' + this.mrCodigoEmpresa + '&matricula=' + matricula, //url
       httpOptions, //cabeçalho
     ).subscribe(
       (sucesso) => {

@@ -3,16 +3,14 @@ import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TrocarSenhaService {
-  readonly url = 'http://192.168.0.11:9995/minhasrotinas';
+  readonly url = sessionStorage.getItem('mrHost') + 'minhasrotinas';
   constructor(private http: HttpClient) { }
 
   async changePassword(payload: object): Promise<any> {
-
     try {
-
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
@@ -21,13 +19,12 @@ export class TrocarSenhaService {
         }),
       };
 
-      const response = await firstValueFrom(this.http.post(`${this.url}/changepassword`, payload, httpOptions));
+      const response = await firstValueFrom(
+        this.http.post(`${this.url}/changepassword`, payload, httpOptions)
+      );
       return response;
-
     } catch (error) {
-      throw (error);
+      throw error;
     }
-
-
   }
 }

@@ -41,10 +41,9 @@ export class UploadDocumentosComponent implements OnInit {
   isHideLoading: boolean = true;
   textLoadingOverlay: string = 'Buscando OPs';
   filterMode: number = PoComboFilterMode.contains;
-  urlUpLoadDocument: string = 'http://192.168.0.11:9995/minhasrotinas/uploaddocument';
+  urlUpLoadDocument: string = sessionStorage.getItem('mrHost') + 'minhasrotinas/uploaddocument';
   productionId: string = '';
   sendFileAs: string = '';
-
 
   header = { 'Content-Type': 'multipart/form-data', Authorization: 'Basic ' + btoa('Admin:teste@123'), Accept: '*/*' };
   constructor(private router: Router,
@@ -84,7 +83,7 @@ export class UploadDocumentosComponent implements OnInit {
   productionOrderListChange() {
     const UserCode = this.mrCodigoUsuario;
     const userName = this.mrUsuario;
-    this.urlUpLoadDocument = `http://192.168.0.11:9995/minhasrotinas/uploaddocument?productionId=${this.productionId}&username=${userName}&usercode=${UserCode}`;
+    this.urlUpLoadDocument = `${sessionStorage.getItem('mrHost')}minhasrotinas/uploaddocument?productionId=${this.productionId}&username=${userName}&usercode=${UserCode}`;
     console.log(` url que será chamada = ${this.urlUpLoadDocument}`);
   }
 

@@ -41,7 +41,6 @@ export class ConsultaDocumentosComponent implements OnInit {
   filterMode: number = PoComboFilterMode.contains;
   productionOrderList: Array<PoComboOption> = [];
   productionId: string = '';
-  //urlUpLoadDocument: string = 'http://192.168.0.11:9995/minhasrotinas/uploaddocument';
   pageDefaultActions: Array<PoPageAction> = [{ action: this.getDocuments.bind(this), label: 'Documentos', disabled: true, icon: 'fas fa-download' },
   { action: this.deleteDocuments.bind(this), label: 'Excluir Docs', disabled: true, icon: 'fas fa-trash' },
   { action: this.logDocuments.bind(this), label: 'Log Acessos', disabled: true, icon: 'fas fa-trash' }]
@@ -250,7 +249,6 @@ export class ConsultaDocumentosComponent implements OnInit {
     this.pageDefaultActions[2].disabled = true;
 
 
-    //this.urlUpLoadDocument = `http://192.168.0.11:9995/minhasrotinas/uploaddocument?productionId=${this.productionId}`;
     this.pageDefaultActions[0].disabled = false;
     this.pageDefaultActions[2].disabled = false;
   }

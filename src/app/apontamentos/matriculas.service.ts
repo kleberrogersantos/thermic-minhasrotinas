@@ -36,9 +36,9 @@ export class MatriculasService {
       }),
     };
 
-
+    const url = sessionStorage.getItem('mrHost') + 'minhasrotinas';
     this.http.get(
-      'http://192.168.0.11:9995/minhasrotinas/matriculas?filial=' + this.mrCodigoEmpresa, //url
+      url + '/matriculas?filial=' + this.mrCodigoEmpresa, //url
       httpOptions //cabeçalho
     ).subscribe(
       (sucesso) => {

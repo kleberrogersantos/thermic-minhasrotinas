@@ -8,7 +8,7 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiProtheusService implements OnInit {
-  readonly url = 'http://192.168.0.11:9995/minhasrotinas';
+  readonly url = sessionStorage.getItem('mrHost') + 'minhasrotinas';
 
 
   mrCodigoEmpresa = sessionStorage.getItem('mrCodigoEmpresa');

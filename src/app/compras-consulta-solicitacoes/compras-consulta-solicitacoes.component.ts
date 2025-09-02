@@ -81,6 +81,7 @@ export class ComprasConsultaSolicitacoesComponent implements OnInit {
       ],
     },
     //{ property: 'quotationStatus', label: 'Status Cotação' },
+    { property: 'buyer', label: 'Compradora' },
     { property: 'poNumber', label: 'Pedido Compra' },
     { property: 'supplierName', label: 'Nome do Fornecedor' },
     { property: 'poDeliveryDate', label: 'Prev Inicial' },

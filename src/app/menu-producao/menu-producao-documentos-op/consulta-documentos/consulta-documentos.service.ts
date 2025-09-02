@@ -20,7 +20,7 @@ interface productionbyId {
   providedIn: 'root'
 })
 export class ConsultaDocumentosService {
-  readonly url = 'http://192.168.0.11:9995/minhasrotinas';
+  readonly url = sessionStorage.getItem('mrHost') + 'minhasrotinas';
 
   constructor(private http: HttpClient,) { }
   private mrCodigoEmpresa = sessionStorage.getItem('mrCodigoEmpresa');

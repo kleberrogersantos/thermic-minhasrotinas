@@ -7,7 +7,7 @@ export class ComprasIndicadoresService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://192.168.0.11:9995/minhasrotinas';
+  url: string = sessionStorage.getItem('mrHost') + 'minhasrotinas';
 
   getData(initialBranch: string, finalBranch: string, initialDate: string, finalDate: string, initialProductId: string, finalProductId: string, initialType: string, finalType: string): Observable<any> {
     const params = new HttpParams()

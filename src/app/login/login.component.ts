@@ -37,17 +37,17 @@ import { AutenticaService } from './autentica.service';
   styleUrl: './login.component.css',
 })
 
- export  class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
-  public loadingPassword:boolean = false;
+  public loadingPassword: boolean = false;
   constructor(
-    private AutenticaService:AutenticaService
+    private AutenticaService: AutenticaService
   ) { }
 
   //Função que faz a chamada do serviço
   //de execução de login em autentica.service.ts
 
-   async fazerLogin(formData: PoPageLogin) {
+  async fazerLogin(formData: PoPageLogin) {
 
     this.loadingPassword = true;
     await this.AutenticaService.fazerLogin(formData);
@@ -57,7 +57,18 @@ import { AutenticaService } from './autentica.service';
 
   ngOnInit(): void {
 
-    sessionStorage.setItem('mrLogado','não');
+    sessionStorage.setItem('mrLogado', 'não');
+
+    const host = window.location.hostname;
+    console.log(`host no login = ${host}`);
+    if (host.includes('thermic.ddns.net')) {
+      sessionStorage.setItem('mrHost', 'http://thermic.ddns.net:9995/');
+      console.log('host externo');
+    } else {
+      sessionStorage.setItem('mrHost', 'http://192.168.0.11:9995/');
+      console.log('host interno');
+    }
+
 
   }
 
