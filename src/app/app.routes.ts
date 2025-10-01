@@ -21,6 +21,7 @@ import { TrocarSenhaComponent } from './menu-configuracoes/trocar-senha/trocar-s
 import { MenuComprasComponent } from './menu-compras/menu-compras.component';
 import { ComprasIndicadoresComponent } from './compras-indicadores/compras-indicadores.component';
 import { ComprasConsultaSolicitacoesComponent } from './compras-consulta-solicitacoes/compras-consulta-solicitacoes.component';
+import { RastreabilidadeOpVinculoDocumentoComponent } from './rastreabilidade-op/rastreabilidade-op-vinculo-documento/rastreabilidade-op-vinculo-documento.component';
 
 
 
@@ -44,6 +45,7 @@ export const routes: Routes = [
   { path: 'consultadocumentos', component: ConsultaDocumentosComponent, canActivate: [guardaRotas] },
   { path: 'rastreabilidadeOP', component: RastreabilidadeOPComponent, canActivate: [guardaRotas], },
   { path: 'vinculo-op-cliente', component: RastreabilidadeOpVinculoClienteComponent, canActivate: [guardaRotas] },
+  { path: 'vinculo-op-documentos', component: RastreabilidadeOpVinculoDocumentoComponent, canActivate: [guardaRotas] },
   { path: 'productionsdocuments', component: ProductionDocumentsComponent, canActivate: [guardaRotas] },
   { path: 'documentsreviews', component: DocumentsReviewComponent },
 ];

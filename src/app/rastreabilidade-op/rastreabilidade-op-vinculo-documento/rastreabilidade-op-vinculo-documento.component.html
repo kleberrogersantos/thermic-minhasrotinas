@@ -1,1 +1,19 @@
-<p>rastreabilidade-op-vinculo-documento works!</p>
+<div class="po-wrapper-menu-panel">
+  <po-toolbar class="po-md-6" [p-title]="mrTitulo"></po-toolbar>
+
+  <po-menu-panel [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png">
+
+  </po-menu-panel>
+
+  <po-page-default [p-title]="title" [p-actions]="actions">
+    <po-loading-overlay [hidden]="isHideLoading" [p-text]="textLoadingOverlay"></po-loading-overlay>
+    <po-divider></po-divider>
+
+    <po-combo #productionCombo p-label="Ordem de Produção" [p-options]="comboItems" [ngModel]="selectedOP"
+      (ngModelChange)="selectedOP" [p-filter-mode]="opFilterMode" (p-change)="onPOSelect($event)">
+    </po-combo>
+
+    <po-table [p-columns]="documentColumns" [p-items]="documentItems"></po-table>
+
+  </po-page-default>
+</div>

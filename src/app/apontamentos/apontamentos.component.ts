@@ -853,6 +853,13 @@ export class ApontamentosComponent implements OnInit {
       return
     }
 
+    console.log(`Serviço: ${this.service}`);
+    console.log(this.service.trim().length);
+    if (this.service.trim().length !== 4) {
+      this.poNotification.warning('Serviço agrupador não pode ser selecionado.');
+      return
+    }
+
     if (this.serviceDetails === '') {
       this.poNotification.warning('Informe o detalhamento do serviço.')
       return
