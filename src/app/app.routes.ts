@@ -22,6 +22,8 @@ import { MenuComprasComponent } from './menu-compras/menu-compras.component';
 import { ComprasIndicadoresComponent } from './compras-indicadores/compras-indicadores.component';
 import { ComprasConsultaSolicitacoesComponent } from './compras-consulta-solicitacoes/compras-consulta-solicitacoes.component';
 import { RastreabilidadeOpVinculoDocumentoComponent } from './rastreabilidade-op/rastreabilidade-op-vinculo-documento/rastreabilidade-op-vinculo-documento.component';
+import { MenuProducaoIndicadoresComponent } from './menu-producao/menu-producao-indicadores/menu-producao-indicadores.component';
+import { IndicadoresFaturamentoXProducaoComponent } from './menu-producao/menu-producao-indicadores/indicadores-faturamento-x-producao/indicadores-faturamento-x-producao.component';
 
 
 
@@ -41,6 +43,8 @@ export const routes: Routes = [
   { path: 'compras-indicadores', component: ComprasIndicadoresComponent, canActivate: [guardaRotas] },
   { path: 'compras-consulta-solicitacoes', component: ComprasConsultaSolicitacoesComponent, canActivate: [guardaRotas] },
   { path: 'menuproducaodocumentosop', component: MenuProducaoDocumentosOpComponent, canActivate: [guardaRotas] },
+  { path: 'menuproducao-indicadores', component: MenuProducaoIndicadoresComponent, canActivate: [guardaRotas] },
+  { path: 'menuproducao-indicadores-indicador01', component: IndicadoresFaturamentoXProducaoComponent, canActivate: [guardaRotas] },
   { path: 'uploaddocumentos', component: UploadDocumentosComponent, canActivate: [guardaRotas] },
   { path: 'consultadocumentos', component: ConsultaDocumentosComponent, canActivate: [guardaRotas] },
   { path: 'rastreabilidadeOP', component: RastreabilidadeOPComponent, canActivate: [guardaRotas], },

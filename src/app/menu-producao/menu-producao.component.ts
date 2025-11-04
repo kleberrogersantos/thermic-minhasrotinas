@@ -28,6 +28,7 @@ export class MenuProducaoComponent {
     { label: 'Apontamento Simplificado', action: () => this.navegar(1), icon: 'ph ph-pencil', shortLabel: 'Apontamentos' },
     { label: 'Rastreabilidade da OP', action: () => this.navegar(2), icon: 'ph ph-file-magnifying-glass', shortLabel: 'Rastreabilide OP' },
     { label: 'Documentos da OP', action: () => this.navegar(3), icon: 'ph ph-file-doc', shortLabel: 'Documentos da OP' },
+    { label: 'Indicadores', action: () => this.navegar(4), icon: 'ph ph-chart-line-up', shortLabel: 'Indicadores' },
     { label: 'Home', action: () => this.navegar(99), icon: 'fa-solid fa-door-open', shortLabel: 'Home' }
   ]
 
@@ -45,6 +46,9 @@ export class MenuProducaoComponent {
     }
     else if (opcao === 3) {
       this.router.navigate(['/menuproducaodocumentosop']);
+    }
+    else if (opcao === 4) {
+      this.router.navigate(['/menuproducao-indicadores']);
     }
     else if (opcao === 99) {
       this.router.navigate(['/home']);
