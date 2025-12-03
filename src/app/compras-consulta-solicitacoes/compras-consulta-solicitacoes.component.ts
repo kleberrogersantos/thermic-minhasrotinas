@@ -23,21 +23,20 @@ import { APP_VERSION } from '../version';
 
 
 @Component({
-  selector: 'app-compras-consulta-solicitacoes',
-  standalone: true,
-  imports: [
-    PoPageSlideModule,
-    PoPageModule,
-    PoTableModule,
-    PoButtonModule,
-    PoFieldModule,
-    FormsModule,
-    PoLoadingModule,
-    PoToolbarModule,
-    PoMenuModule,
-  ],
-  templateUrl: './compras-consulta-solicitacoes.component.html',
-  styleUrl: './compras-consulta-solicitacoes.component.css',
+    selector: 'app-compras-consulta-solicitacoes',
+    imports: [
+        PoPageSlideModule,
+        PoPageModule,
+        PoTableModule,
+        PoButtonModule,
+        PoFieldModule,
+        FormsModule,
+        PoLoadingModule,
+        PoToolbarModule,
+        PoMenuModule,
+    ],
+    templateUrl: './compras-consulta-solicitacoes.component.html',
+    styleUrl: './compras-consulta-solicitacoes.component.css'
 })
 export class ComprasConsultaSolicitacoesComponent implements OnInit {
   @ViewChild('slideParams') slideParams!: PoPageSlideComponent;

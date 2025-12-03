@@ -25,10 +25,10 @@ export class MenuProducaoComponent {
   heightImage: number = 170
 
   menus: Array<PoMenuItem> = [
-    { label: 'Apontamento Simplificado', action: () => this.navegar(1), icon: 'ph ph-pencil', shortLabel: 'Apontamentos' },
-    { label: 'Rastreabilidade da OP', action: () => this.navegar(2), icon: 'ph ph-file-magnifying-glass', shortLabel: 'Rastreabilide OP' },
-    { label: 'Documentos da OP', action: () => this.navegar(3), icon: 'ph ph-file-doc', shortLabel: 'Documentos da OP' },
-    { label: 'Home', action: () => this.navegar(99), icon: 'ph ph-sign-out', shortLabel: 'Home' }
+    { label: 'Apontamento Simplificado', action: () => this.navegar(1), icon: 'an an-pencil', shortLabel: 'Apontamentos' },
+    { label: 'Rastreabilidade da OP', action: () => this.navegar(2), icon: 'an an-file-magnifying-glass', shortLabel: 'Rastreabilide OP' },
+    { label: 'Documentos da OP', action: () => this.navegar(3), icon: 'an an-file-doc', shortLabel: 'Documentos da OP' },
+    { label: 'Home', action: () => this.navegar(99), icon: 'an an-sign-out', shortLabel: 'Home' }
   ]
 
   constructor(private router: Router,) {

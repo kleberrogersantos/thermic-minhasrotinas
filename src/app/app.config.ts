@@ -1,47 +1,33 @@
-import { provideRouter } from '@angular/router';
-
+// src/app/app.config.ts
+import { ApplicationConfig, DEFAULT_CURRENCY_CODE, importProvidersFrom } from '@angular/core';
+import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/router';
 import { routes } from './app.routes';
 
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
-import { PoHttpRequestModule } from '@po-ui/ng-components';
-import { LoginComponent } from './login/login.component';
-import { Usuario } from './login/usuario';
-import { FormControl, FormGroup, FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
-import { Matriculas } from './apontamentos/matriculas';
-import { MatriculasService } from './apontamentos/matriculas.service';
-import { StatusmatriculaService } from './apontamentos/statusmatricula.service';
-import { statusApontamentos } from './apontamentos/statusmatricula';
-import { guardaRotas } from './guardas/guarda.rotas';
-import { guardaRotasGlobalConfig } from './guardas/guada.rotas.globalconfig';
-import { guardaRotasApontamento } from './guardas/guarda.rotas.apontamentos';
-import api from './http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LOCALE_ID } from '@angular/core';
 
 
+// Se você usa módulos do PO-UI globalmente (opcional):
+// Você pode importar apenas o que realmente usa (PoModule, PoTemplatesModule, etc.)
+import { PoModule } from '@po-ui/ng-components';
+// import { PoTemplatesModule } from '@po-ui/ng-templates';
 
-
+// ⚠️ Não use PoHttpRequestModule com provideHttpClient; não é necessário.
+// Remova qualquer import de PoHttpRequestModule do projeto.
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
-    provideHttpClient(),
-    importProvidersFrom([PoHttpRequestModule]),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withInterceptorsFromDi()),
-    ReactiveFormsModule,
-    FormsModule,
-    Usuario,
-    Matriculas,
-    MatriculasService,
-    StatusmatriculaService,
-    statusApontamentos,
-    guardaRotas,
-    guardaRotasGlobalConfig,
-    guardaRotasApontamento,
-    importProvidersFrom(BrowserAnimationsModule)
-
-  ],
-
+    provideRouter(routes, withEnabledBlockingInitialNavigation()),
+    provideHttpClient(withInterceptorsFromDi()),   // HttpClient "standalone" + interceptors do DI
+    provideAnimations(),                            // animações habilitadas
+    importProvidersFrom(
+      PoModule
+      // , PoTemplatesModule
+    ),
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
+  ]
 };
+

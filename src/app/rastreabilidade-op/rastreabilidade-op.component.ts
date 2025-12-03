@@ -12,7 +12,6 @@ import { RastreabilidadeOpVinculoClienteComponent } from './rastreabilidade-op-v
     PoPageModule,
     PoDividerModule,
     PoBreadcrumbModule
-
   ],
   templateUrl: './rastreabilidade-op.component.html',
   styleUrl: './rastreabilidade-op.component.css'
@@ -26,9 +25,9 @@ export class RastreabilidadeOPComponent {
   }
 
   menus: Array<PoMenuItem> = [
-    { label: 'Vinculo OP x Cliente', action: () => this.navegar(1), icon: 'ph ph-user-gear', shortLabel: 'Vinculo OP x Cliente' },
-    { label: 'Vinculo OP x Documentos', action: () => this.navegar(2), icon: 'ph ph-file-doc', shortLabel: 'Vinculo OP x Documentos' },
-    { label: 'Consultas.', action: () => this.navegar(3), icon: 'ph ph-magnifying-glass', shortLabel: 'Consultas' },
+    { label: 'Vinculo OP x Cliente', action: () => this.navegar(1), icon: 'an an-user-gear', shortLabel: 'Vinculo OP x Cliente' },
+    { label: 'Vinculo OP x Documentos', action: () => this.navegar(2), icon: 'an an-file-doc', shortLabel: 'Vinculo OP x Documentos' },
+    { label: 'Consultas.', action: () => this.navegar(3), icon: 'an an-magnifying-glass', shortLabel: 'Consultas' },
     { label: 'Menu', action: () => this.navegar(99), icon: 'fa-solid fa-door-open', shortLabel: 'Voltar ao Menu' }
   ]
 

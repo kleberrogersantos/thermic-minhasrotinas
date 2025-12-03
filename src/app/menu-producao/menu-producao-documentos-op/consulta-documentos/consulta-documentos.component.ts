@@ -6,25 +6,24 @@ import { PoButtonModule, PoComboFilterMode, PoComboOption, PoDividerModule, PoFi
 import { APP_VERSION } from '../../../version';
 
 @Component({
-  selector: 'app-consulta-documentos',
-  standalone: true,
-  imports: [
-    PoToolbarModule,
-    PoMenuPanelModule,
-    PoPageModule,
-    PoFieldModule,
-    PoWidgetModule,
-    PoIconModule,
-    PoButtonModule,
-    PoLoadingModule,
-    FormsModule,
-    PoDividerModule,
-    PoModalModule,
-    PoTableModule,
-    PoMenuModule
-  ],
-  templateUrl: './consulta-documentos.component.html',
-  styleUrl: './consulta-documentos.component.css'
+    selector: 'app-consulta-documentos',
+    imports: [
+        PoToolbarModule,
+        PoMenuPanelModule,
+        PoPageModule,
+        PoFieldModule,
+        PoWidgetModule,
+        PoIconModule,
+        PoButtonModule,
+        PoLoadingModule,
+        FormsModule,
+        PoDividerModule,
+        PoModalModule,
+        PoTableModule,
+        PoMenuModule
+    ],
+    templateUrl: './consulta-documentos.component.html',
+    styleUrl: './consulta-documentos.component.css'
 })
 export class ConsultaDocumentosComponent implements OnInit {
 

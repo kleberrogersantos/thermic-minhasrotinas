@@ -24,7 +24,7 @@ import { ApiProtheusService } from './api-protheus.service.service';
     FormsModule,
   ],
   templateUrl: './rastreabilidade-op-vinculo-documento.component.html',
-  styleUrl: './rastreabilidade-op-vinculo-documento.component.css',
+  styleUrl: './rastreabilidade-op-vinculo-documento.component.css'
 })
 export class RastreabilidadeOpVinculoDocumentoComponent implements OnInit {
   public menuItems: Array<PoMenuPanelItem> = []; //Definido no OnInit()

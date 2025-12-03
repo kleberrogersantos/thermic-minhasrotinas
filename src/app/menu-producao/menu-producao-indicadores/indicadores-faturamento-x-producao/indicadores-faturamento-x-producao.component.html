@@ -1,0 +1,202 @@
+<div class="po-wrapper">
+  <po-menu
+    [p-collapsed]="true"
+    [p-menus]="menus"
+    p-logo="/assets/images/logo_minhasrotinas.png"
+  >
+  </po-menu>
+
+  <!-- PAGE DEFAULT PRINCIPAL -->
+  <po-page-default
+    p-title="Minhas Rotinas - PCP - Indicador Faturamento x Custos"
+    [p-actions]="poPageDefaultActions"
+  >
+    <po-divider></po-divider>
+
+    <div class="po-row">
+      <div class="po-md-4">
+        <po-chart
+          [p-height]="250"
+          [p-type]="graphicTotalType"
+          [p-series]="series"
+          p-title="Faturamento x Custo"
+          [p-options]="graphicTotalOptions"
+        >
+        </po-chart>
+      </div>
+
+      <div class="po-md-1">&nbsp;</div>
+
+      <div class="po-md-6">
+        <po-chart
+          [p-height]="250"
+          name="graphicMargem"
+          p-title="Margem de vendas %"
+          [p-type]="graphicMargemType"
+          [p-series]="MargemSeries"
+        >
+        </po-chart>
+      </div>
+    </div>
+
+    <div class="po-row">&nbsp;</div>
+
+    <div class="po-row">
+      <div class="po-md-12">
+        <po-table
+          #tabelaNotas
+          [p-items]="dadosTabela"
+          [p-columns]="colunasTabela"
+          [p-height]="450"
+          p-hide-columns-manager="true"
+          [p-actions]="tableActions"
+        >
+          <!-- detalhe da linha (array de custos da nota) -->
+          <ng-template p-table-row-template let-row>
+            <div class="po-row" *ngIf="row.costDetails?.length">
+              <div class="po-md-12">
+                <po-table
+                  [p-columns]="colunasDetalhe"
+                  [p-items]="row.costDetails"
+                  [p-height]="220"
+                  p-hide-columns-manager="true"
+                >
+                </po-table>
+              </div>
+            </div>
+          </ng-template>
+        </po-table>
+
+        <!-- MODAL COM GRÁFICOS DA NOTA -->
+        <!-- MODAL COM GRÁFICOS DA NOTA -->
+        <po-modal #detalheGraficoModal p-title="Detalhes do Item" p-size="lg">
+          <!-- só cria os gráficos quando o modal estiver visível -->
+          <ng-container *ngIf="modalGraficosVisivel">
+            <div class="po-row">
+              <div class="po-md-6">
+                <po-chart
+                  p-title="Margem do Item (%)"
+                  [p-height]="220"
+                  [p-type]="chartGaugeType"
+                  [p-series]="notaGaugeSeries"
+                >
+                </po-chart>
+              </div>
+
+              <div class="po-md-6">
+                <po-chart
+                  p-title="Custos por Tipo"
+                  [p-height]="220"
+                  [p-type]="chartPieType"
+                  [p-series]="notaPieSeries"
+                >
+                </po-chart>
+              </div>
+            </div>
+
+            <!-- Tabela com Tipo x Valor -->
+            <div class="po-row" style="margin-top: 16px">
+              <div class="po-md-12">
+                <po-table
+                  [p-columns]="notaCostTypesColumns"
+                  [p-items]="notaCostTypesItems"
+                  p-hide-columns-manager="true"
+                >
+                </po-table>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- FOOTER DO MODAL -->
+          <po-modal-footer>
+            <po-button
+              p-label="Exportar custos (Excel)"
+              (p-click)="exportCostsToExcel()"
+            >
+            </po-button>
+
+            <po-button p-label="Fechar" (p-click)="fecharModalDetalhes()">
+            </po-button>
+          </po-modal-footer>
+        </po-modal>
+      </div>
+    </div>
+    <po-divider></po-divider>
+    <br />
+    <br />
+  </po-page-default>
+
+  <!-- PAGE SLIDE (FORA DO po-page-default) -->
+  <po-page-slide #paramPageSlide p-title="Parâmetros">
+    <div class="po-row">
+      <po-combo
+        class="po-md-12"
+        p-label="Grupo"
+        ngDefaultControl
+        name="grupo"
+        [p-options]="groupOptions"
+        [ngModel]="selectedGroup"
+        (ngModelChange)="selectedGroup = $event"
+        p-placeholder="Escolha o grupo desejado"
+        [p-filter-mode]="groupsComboFilterMode"
+      >
+      </po-combo>
+    </div>
+
+    <div class="po-row">
+      <po-combo
+        class="po-md-12"
+        p-label="Cliente"
+        ngDefaultControl
+        name="cliente"
+        [p-options]="customerOptions"
+        [ngModel]="selectedCustomer"
+        (ngModelChange)="selectedCustomer = $event"
+        p-placeholder="Escolha o cliente ou deixe em branco para trazer todos"
+        [p-filter-mode]="customersComboFilterMode"
+      >
+      </po-combo>
+    </div>
+
+    <div class="po-row">
+      <po-datepicker
+        name="dataInicial"
+        p-label="Data Inicial"
+        class="po-md-6"
+        ngDefaultControl
+        [ngModel]="dataInicial"
+        (ngModelChange)="dataInicial = $event"
+      >
+      </po-datepicker>
+
+      <po-datepicker
+        name="dataFinal"
+        p-label="Data Final"
+        class="po-md-6"
+        ngDefaultControl
+        [ngModel]="dataFinal"
+        (ngModelChange)="dataFinal = $event"
+      >
+      </po-datepicker>
+    </div>
+
+    <div class="po-row">&nbsp;</div>
+    <div class="po-row">&nbsp;</div>
+
+    <div class="po-row">
+      <div class="po-md-6"></div>
+      <po-button
+        p-label="Aplicar"
+        class="po-md-6"
+        [p-loading]="loading"
+        (p-click)="aplicar()"
+      >
+      </po-button>
+    </div>
+    <po-divider></po-divider>
+  </po-page-slide>
+  <po-divider></po-divider>
+  <!-- overlay global para qualquer chamada async -->
+  <po-loading-overlay [p-screen-lock]="true" *ngIf="loading || loadingDetails">
+  </po-loading-overlay>
+</div>

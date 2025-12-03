@@ -28,10 +28,10 @@ export class HomeComponent {
   heightImage: number = 170
 
   menus: Array<PoMenuItem> = [
-    { label: 'Estoque/Almoxarifado', action: () => this.navegar(1), icon: 'ph ph-warehouse', shortLabel: 'Estoque/Almoxarifado' },
-    { label: 'Produção', action: () => this.navegar(2), icon: 'ph ph-siren', shortLabel: 'PCP' },
-    { label: 'Configurações', action: () => this.navegar(3), icon: 'ph ph-gear', shortLabel: 'Configurações' },
-    { label: 'Logoff', action: () => this.navegar(99), icon: 'ph ph-sign-out', shortLabel: 'Logoff' }
+    { label: 'Estoque/Almoxarifado', action: () => this.navegar(1), icon: 'an an-warehouse', shortLabel: 'Estoque/Almoxarifado' },
+    { label: 'Produção', action: () => this.navegar(2), icon: 'an an-siren', shortLabel: 'PCP' },
+    { label: 'Configurações', action: () => this.navegar(3), icon: 'an an-gear', shortLabel: 'Configurações' },
+    { label: 'Logoff', action: () => this.navegar(99), icon: 'an an-sign-out', shortLabel: 'Logoff' }
   ]
 
   constructor(private router: Router,) {

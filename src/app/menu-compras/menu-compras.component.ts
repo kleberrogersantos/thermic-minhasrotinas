@@ -3,18 +3,17 @@ import { Router } from '@angular/router';
 import { PoBreadcrumbModule, PoDividerModule, PoImageModule, PoMenuItem, PoMenuModule, PoPageModule, PoToolbarModule } from '@po-ui/ng-components';
 
 @Component({
-  selector: 'app-menu-compras',
-  standalone: true,
-  imports: [
-    PoMenuModule,
-    PoImageModule,
-    PoToolbarModule,
-    PoDividerModule,
-    PoBreadcrumbModule,
-    PoPageModule,
-  ],
-  templateUrl: './menu-compras.component.html',
-  styleUrl: './menu-compras.component.css',
+    selector: 'app-menu-compras',
+    imports: [
+        PoMenuModule,
+        PoImageModule,
+        PoToolbarModule,
+        PoDividerModule,
+        PoBreadcrumbModule,
+        PoPageModule,
+    ],
+    templateUrl: './menu-compras.component.html',
+    styleUrl: './menu-compras.component.css'
 })
 export class MenuComprasComponent {
   constructor(private router: Router) { }

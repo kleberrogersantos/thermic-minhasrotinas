@@ -41,7 +41,7 @@ export class MenuEstoqueSolicitacaoArmazemComponent implements OnInit {
   mrTitulo: any;
 
   menuItems = [
-    { label: 'Menu', action: this.LogOff.bind(this), icon: 'ph ph-sign-out' },
+    { label: 'Menu', action: this.LogOff.bind(this), icon: 'an an-sign-out' },
 
   ];
   pagetitle: string = 'Solicitação ao Armazém';

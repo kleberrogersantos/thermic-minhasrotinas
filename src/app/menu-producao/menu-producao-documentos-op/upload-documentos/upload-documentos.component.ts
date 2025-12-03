@@ -7,25 +7,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { APP_VERSION } from '../../../version';
 
 @Component({
-  selector: 'app-upload-documentos',
-  standalone: true,
-  imports: [
-    PoToolbarModule,
-    PoMenuPanelModule,
-    PoPageModule,
-    PoFieldModule,
-    PoWidgetModule,
-    PoIconModule,
-    PoButtonModule,
-    PoLoadingModule,
-    FormsModule,
-    PoProgressModule,
-    PoMenuModule
-
-
-  ],
-  templateUrl: './upload-documentos.component.html',
-  styleUrl: './upload-documentos.component.css'
+    selector: 'app-upload-documentos',
+    imports: [
+        PoToolbarModule,
+        PoMenuPanelModule,
+        PoPageModule,
+        PoFieldModule,
+        PoWidgetModule,
+        PoIconModule,
+        PoButtonModule,
+        PoLoadingModule,
+        FormsModule,
+        PoProgressModule,
+        PoMenuModule
+    ],
+    templateUrl: './upload-documentos.component.html',
+    styleUrl: './upload-documentos.component.css'
 })
 export class UploadDocumentosComponent implements OnInit {
 

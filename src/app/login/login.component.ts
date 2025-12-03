@@ -8,7 +8,6 @@ import {
 } from '@po-ui/ng-templates';
 import {
   PoDialogService,
-  PoHttpRequestModule,
   PoMenuPanelModule,
   PoPageModule,
   PoToolbarModule,
@@ -30,11 +29,10 @@ import { AutenticaService } from './autentica.service';
     PoPageModule,
     PoToolbarModule,
     PoPageLoginModule,
-    PoHttpRequestModule,
     HttpClientModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrl: './login.component.css'
 })
 
 export class LoginComponent implements OnInit {

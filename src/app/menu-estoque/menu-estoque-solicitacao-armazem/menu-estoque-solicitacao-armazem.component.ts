@@ -20,7 +20,7 @@ import { APP_VERSION } from '../../version';
     PoLoadingModule,
     PoTableModule,
     PoModalModule,
-    PoMenuModule
+    PoMenuModule,
   ],
   templateUrl: './menu-estoque-solicitacao-armazem.component.html',
   styleUrl: './menu-estoque-solicitacao-armazem.component.css'
@@ -176,6 +176,7 @@ export class MenuEstoqueSolicitacaoArmazemComponent implements OnInit {
       if (typeof response === "string") {
         this.poNotification.error(response);
       } else {
+        console.log(`response dos produtos: ${JSON.stringify(response)}`);
         if ("code" in response) {
           this.poNotification.error(response.message);
         } else {

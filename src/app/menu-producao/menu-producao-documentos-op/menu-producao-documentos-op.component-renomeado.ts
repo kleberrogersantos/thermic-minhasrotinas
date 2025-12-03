@@ -25,9 +25,9 @@ export class MenuProducaoDocumentosOpComponent implements OnInit {
   heightImage: number = 170
 
   menus: Array<PoMenuItem> = [
-    { label: 'UpLoad de documentos', action: () => this.navegar(1), icon: 'ph ph-upload', shortLabel: 'UpLoad' },
-    { label: 'Consulta de documentos', action: () => this.navegar(2), icon: 'ph ph-file-magnifying-glass', shortLabel: 'Consulta' },
-    { label: 'Voltar menu', action: () => this.navegar(99), icon: 'ph ph-sign-out', shortLabel: 'Voltar menu' }
+    { label: 'UpLoad de documentos', action: () => this.navegar(1), icon: 'an an-upload', shortLabel: 'UpLoad' },
+    { label: 'Consulta de documentos', action: () => this.navegar(2), icon: 'an an-file-magnifying-glass', shortLabel: 'Consulta' },
+    { label: 'Voltar menu', action: () => this.navegar(99), icon: 'an an-sign-out', shortLabel: 'Voltar menu' }
   ]
 
   constructor(private router: Router,) {

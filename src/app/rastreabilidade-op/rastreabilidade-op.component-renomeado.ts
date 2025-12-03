@@ -26,10 +26,10 @@ export class RastreabilidadeOPComponent {
   }
 
   menus: Array<PoMenuItem> = [
-    { label: 'Vinculo OP x Cliente', action: () => this.navegar(1), icon: 'ph ph-user-gear', shortLabel: 'Vinculo OP x Cliente' },
-    { label: 'Vinculo OP x Documentos', action: () => this.navegar(2), icon: 'ph ph-file-doc', shortLabel: 'Vinculo OP x Documentos' },
-    { label: 'Consultas.', action: () => this.navegar(3), icon: 'ph ph-magnifying-glass', shortLabel: 'Consultas' },
-    { label: 'Menu', action: () => this.navegar(99), icon: 'ph ph-sign-out', shortLabel: 'Voltar ao Menu' }
+    { label: 'Vinculo OP x Cliente', action: () => this.navegar(1), icon: 'an an-user-gear', shortLabel: 'Vinculo OP x Cliente' },
+    { label: 'Vinculo OP x Documentos', action: () => this.navegar(2), icon: 'an an-file-doc', shortLabel: 'Vinculo OP x Documentos' },
+    { label: 'Consultas.', action: () => this.navegar(3), icon: 'an an-magnifying-glass', shortLabel: 'Consultas' },
+    { label: 'Menu', action: () => this.navegar(99), icon: 'an an-sign-out', shortLabel: 'Voltar ao Menu' }
   ]
 
 

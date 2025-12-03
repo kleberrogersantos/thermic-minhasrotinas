@@ -52,7 +52,7 @@ export class UploadDocumentosComponent implements OnInit {
 
   }
 
-  public menuItems: Array<PoMenuPanelItem> = [{ label: 'Menu', action: this.LogOff.bind(this), icon: 'ph ph-sign-out' },];
+  public menuItems: Array<PoMenuPanelItem> = [{ label: 'Menu', action: this.LogOff.bind(this), icon: 'an an-sign-out' },];
 
   async ngOnInit(): Promise<any> {
 

@@ -23,7 +23,7 @@ export class MenuEstoqueComponent {
   heightImage: number = 170
 
   menus: Array<PoMenuItem> = [
-    { label: 'Solicitação ao Armazém', action: () => this.navegar(1), icon: 'ph ph-hand-arrow-down', shortLabel: 'Solicitação Armazém' },
+    { label: 'Solicitação ao Armazém', action: () => this.navegar(1), icon: 'an an-hand-arrow-down', shortLabel: 'Solicitação Armazém' },
     { label: 'home', action: () => this.navegar(99), icon: 'fa-solid fa-door-open', shortLabel: 'Home' }
   ]
 

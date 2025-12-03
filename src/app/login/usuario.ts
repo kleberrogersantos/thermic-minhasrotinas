@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class Usuario {
   public codigo: string = '';
   public nome: string = '';

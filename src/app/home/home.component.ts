@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
     PoDividerModule,
     PoBreadcrumbModule,
     PoPageModule
-
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

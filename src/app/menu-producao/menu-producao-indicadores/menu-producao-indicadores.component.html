@@ -1,0 +1,30 @@
+<div class="po-wrapper">
+  <po-menu [p-collapsed]="true" [p-menus]="menus" p-logo="/assets/images/logo_minhasrotinas.png">
+  </po-menu>
+  <po-page-default>
+    <font class="po-font-title">Minhas Rotinas</font>
+    <div class="po-row"></div>
+    <div class="po-row">
+      <div class="po-md-1">
+        <po-breadcrumb [p-items]="[{label:'Home',link:'/home'},
+        {label:'Produção',link:'/menuproducao'},
+        {label:'Indicadores',link:''}
+      ]"></po-breadcrumb>
+      </div>
+    </div>
+    <po-divider></po-divider>
+
+    <div class="po-row">
+      <div class="po-md-3" *ngFor="let card of cards">
+        <po-widget p-title="{{ card.title }}" class="indicador-widget">
+          <!-- toda a área vira “link” -->
+          <div class="indicador-conteudo" tabindex="0" (click)="navigate(card.link)"
+            (keyup.enter)="navigate(card.link)">
+            <img title="{{card.title}}" [src]="card.image" [alt]="card.title" class="indicador-img" />
+            <p class="indicador-texto">{{ card.description }}</p>
+          </div>
+        </po-widget>
+      </div>
+    </div>
+  </po-page-default>
+  <div>

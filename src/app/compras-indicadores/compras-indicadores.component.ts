@@ -48,7 +48,7 @@ import { APP_VERSION } from '../version';
     PoMenuModule,
   ],
   templateUrl: './compras-indicadores.component.html',
-  styleUrl: './compras-indicadores.component.css',
+  styleUrl: './compras-indicadores.component.css'
 })
 export class ComprasIndicadoresComponent implements OnInit {
   constructor(
@@ -150,11 +150,11 @@ export class ComprasIndicadoresComponent implements OnInit {
   ];
 
   purchaseOrdersDeliveryActions: Array<PoTableAction> = [
-    { action: this.supplierDetails.bind(this), icon: 'ph ph-eye', label: '' },
+    { action: this.supplierDetails.bind(this), icon: 'an an-eye', label: '' },
   ];
 
   paymentTermActions: Array<PoTableAction> = [
-    { action: this.paymentDetails.bind(this), icon: 'ph ph-eye', label: '' },
+    { action: this.paymentDetails.bind(this), icon: 'an an-eye', label: '' },
   ];
 
   purchaseOrdersDeliveryItems: any[] = [];

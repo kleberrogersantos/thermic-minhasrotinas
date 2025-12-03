@@ -23,7 +23,7 @@ export class MenuConfiguracoesComponent {
   }
 
   menus: Array<PoMenuItem> = [
-    { label: 'Trocar Senha', action: () => this.navegar(1), icon: 'ph ph-password', shortLabel: 'Trocar Senha' },
+    { label: 'Trocar Senha', action: () => this.navegar(1), icon: 'an an-password', shortLabel: 'Trocar Senha' },
     { label: 'Voltar', action: () => this.navegar(99), icon: 'fa-solid fa-door-open', shortLabel: 'Voltar' }
   ]
 

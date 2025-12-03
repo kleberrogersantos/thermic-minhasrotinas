@@ -12,19 +12,17 @@ import {
 import { LoginComponent } from "./login/login.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    PoToolbarModule,
-    PoMenuModule,
-    PoPageModule,
-    PoPageLoginModule,
-
-  ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+    selector: 'app-root',
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        PoToolbarModule,
+        PoMenuModule,
+        PoPageModule,
+        PoPageLoginModule,
+    ],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 

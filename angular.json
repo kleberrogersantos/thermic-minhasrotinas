@@ -25,12 +25,13 @@
               "src/logo_minhasrotinas.ico",
               "src/assets/images",
               {
-                "glob": "**\/*",
+                "glob": "**/*",
                 "input": "node_modules/@po-ui/style/images",
                 "output": "assets/images"
               }
             ],
             "styles": [
+              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
               "node_modules/@po-ui/style/css/po-theme-default-variables.min.css",
               "node_modules/@po-ui/style/css/po-theme-core.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",

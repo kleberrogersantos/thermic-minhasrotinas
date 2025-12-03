@@ -8,25 +8,23 @@ import { APP_VERSION } from '../../version';
 
 
 @Component({
-  selector: 'app-rastreabilidade-op-vinculo-cliente',
-  standalone: true,
-  imports: [
-    PoFieldModule,
-    PoImageModule,
-    PoTabsModule,
-    PoTableModule,
-    PoButtonModule,
-    PoToolbarModule,
-    PoMenuPanelModule,
-    PoPageModule,
-    PoDividerModule,
-    NgStyle,
-    PoLoadingModule,
-    FormsModule
-
-  ],
-  templateUrl: './rastreabilidade-op-vinculo-cliente.component.html',
-  styleUrl: './rastreabilidade-op-vinculo-cliente.component.css'
+    selector: 'app-rastreabilidade-op-vinculo-cliente',
+    imports: [
+        PoFieldModule,
+        PoImageModule,
+        PoTabsModule,
+        PoTableModule,
+        PoButtonModule,
+        PoToolbarModule,
+        PoMenuPanelModule,
+        PoPageModule,
+        PoDividerModule,
+        NgStyle,
+        PoLoadingModule,
+        FormsModule
+    ],
+    templateUrl: './rastreabilidade-op-vinculo-cliente.component.html',
+    styleUrl: './rastreabilidade-op-vinculo-cliente.component.css'
 })
 export class RastreabilidadeOpVinculoClienteComponent implements OnInit {
 

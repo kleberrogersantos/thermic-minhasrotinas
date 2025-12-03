@@ -7,18 +7,17 @@ import { PoDividerModule, PoFieldModule, PoLoadingModule, PoNotificationModule, 
 
 
 @Component({
-  selector: 'app-documents-review',
-  standalone: true,
-  imports: [PoPageModule,
-    PoFieldModule,
-    PoDividerModule,
-    PoWidgetModule,
-    FormsModule,
-    PoNotificationModule,
-    PoLoadingModule
-  ],
-  templateUrl: './documents-review.component.html',
-  styleUrl: './documents-review.component.css'
+    selector: 'app-documents-review',
+    imports: [PoPageModule,
+        PoFieldModule,
+        PoDividerModule,
+        PoWidgetModule,
+        FormsModule,
+        PoNotificationModule,
+        PoLoadingModule
+    ],
+    templateUrl: './documents-review.component.html',
+    styleUrl: './documents-review.component.css'
 })
 
 

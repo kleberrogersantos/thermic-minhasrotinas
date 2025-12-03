@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
     PoDividerModule,
     PoBreadcrumbModule,
     PoPageModule
-
-
   ],
   templateUrl: './menu-producao.component.html',
   styleUrl: './menu-producao.component.css'
@@ -25,10 +23,10 @@ export class MenuProducaoComponent {
   heightImage: number = 170
 
   menus: Array<PoMenuItem> = [
-    { label: 'Apontamento Simplificado', action: () => this.navegar(1), icon: 'ph ph-pencil', shortLabel: 'Apontamentos' },
-    { label: 'Rastreabilidade da OP', action: () => this.navegar(2), icon: 'ph ph-file-magnifying-glass', shortLabel: 'Rastreabilide OP' },
-    { label: 'Documentos da OP', action: () => this.navegar(3), icon: 'ph ph-file-doc', shortLabel: 'Documentos da OP' },
-    { label: 'Indicadores', action: () => this.navegar(4), icon: 'ph ph-chart-line-up', shortLabel: 'Indicadores' },
+    { label: 'Apontamento Simplificado', action: () => this.navegar(1), icon: 'an an-pencil', shortLabel: 'Apontamentos' },
+    { label: 'Rastreabilidade da OP', action: () => this.navegar(2), icon: 'an an-file-magnifying-glass', shortLabel: 'Rastreabilide OP' },
+    { label: 'Documentos da OP', action: () => this.navegar(3), icon: 'an an-file-doc', shortLabel: 'Documentos da OP' },
+    { label: 'Indicadores', action: () => this.navegar(4), icon: 'an an-chart-line-up', shortLabel: 'Indicadores' },
     { label: 'Home', action: () => this.navegar(99), icon: 'fa-solid fa-door-open', shortLabel: 'Home' }
   ]
 

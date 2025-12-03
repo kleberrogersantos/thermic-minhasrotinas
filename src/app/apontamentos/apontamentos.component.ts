@@ -32,7 +32,6 @@ import { APP_VERSION } from '../version';
     PoDialogModule,
     PoDividerModule,
     PoMenuModule
-
   ],
   templateUrl: './apontamentos.component.html',
   styleUrl: './apontamentos.component.css'
@@ -631,12 +630,12 @@ export class ApontamentosComponent implements OnInit {
     ];
 
 
-    this.actions.push({ label: 'Finalizar', action: () => this.finalizarAtividade(), icon: 'ph ph-share', disabled: true });
-    this.actions.push({ label: 'Iniciar', action: () => this.iniciarAtividade(), icon: 'ph ph-share', disabled: true });
+    this.actions.push({ label: 'Finalizar', action: () => this.finalizarAtividade(), icon: 'an an-share', disabled: true });
+    this.actions.push({ label: 'Iniciar', action: () => this.iniciarAtividade(), icon: 'an an-share', disabled: true });
     if (this.mrBloqueiaOP === 'sim') {
-      this.actions.push({ label: 'Bloquear', action: () => this.pageSlide.open(), icon: 'ph ph-x-circle', disabled: true });
+      this.actions.push({ label: 'Bloquear', action: () => this.pageSlide.open(), icon: 'an an-x-circle', disabled: true });
     }
-    this.actions.push({ label: 'Serviços', action: () => this.Services(), icon: 'ph ph-share', disabled: true });
+    this.actions.push({ label: 'Serviços', action: () => this.Services(), icon: 'an an-share', disabled: true });
 
 
   }

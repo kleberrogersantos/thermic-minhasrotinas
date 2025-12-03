@@ -122,11 +122,35 @@ export class AutenticaService {
       }
     }
 
-
-
-
-
   }
 
+  isLoggedIn(): boolean {
+    // critério simples baseado no que você já grava na sessão
+    // (você salva 'mrLogado' = 'sim' no login)
+    return sessionStorage.getItem('mrLogado') === 'sim';
+  }
+
+  // opcional: para usar na guarda caso queira centralizar o redirect
+  redirectToLogin(currentUrl?: string) {
+    if (currentUrl) {
+      sessionStorage.setItem('mrRedirectAfterLogin', currentUrl);
+    }
+    this.router.navigate(['/login']);
+  }
+
+  // opcional: para limpar sessão
+  logout() {
+    sessionStorage.removeItem('mrUsuario');
+    sessionStorage.removeItem('mrCodigoUsuario');
+    sessionStorage.removeItem('mrBloqueado');
+    sessionStorage.removeItem('mrEmpresas');
+    sessionStorage.removeItem('mrBloqueiaOP');
+    sessionStorage.removeItem('mrApontador');
+    sessionStorage.removeItem('mrAlteraDatabase');
+    sessionStorage.removeItem('mrTrocarSenha');
+    sessionStorage.setItem('mrLogado', 'não');
+
+    this.router.navigate(['/login']);
+  }
 
 }

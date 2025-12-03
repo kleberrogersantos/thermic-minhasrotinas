@@ -1,33 +1,24 @@
 import { Matriculas } from './matriculas';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpClientModule,
-} from '@angular/common/http';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatriculasService {
 
-
   private mrCodigoEmpresa = sessionStorage.getItem('mrCodigoEmpresa');
-  constructor(private http: HttpClient,
-    private Matriculas: Matriculas,
-
-  ) { }
-
-  private raw: any;
   private headers = new HttpHeaders();
 
+  // AGORA Matriculas é só um atributo da classe, não algo injetado
+  private matriculasModel: Matriculas = new Matriculas();
+
+  constructor(private http: HttpClient) { }
 
   buscaMatriculas(): Matriculas {
 
-    this.Matriculas.matriculas = [];
+    this.matriculasModel.matriculas = [];
 
-    //Ajuste o Header da requisição http
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -37,21 +28,22 @@ export class MatriculasService {
     };
 
     const url = sessionStorage.getItem('mrHost') + 'minhasrotinas';
+
     this.http.get(
-      url + '/matriculas?filial=' + this.mrCodigoEmpresa, //url
-      httpOptions //cabeçalho
+      url + '/matriculas?filial=' + this.mrCodigoEmpresa,
+      httpOptions
     ).subscribe(
       (sucesso) => {
-        this.Matriculas.matriculas = (sucesso as any).matriculas;
-      }
-      ,
+        this.matriculasModel.matriculas = (sucesso as any).matriculas;
+      },
       (erro) => {
-        this.Matriculas.matriculas = (erro as any).matriculas;
+        // aqui eu deixaria vazio ao invés de pegar (erro as any).matriculas
+        this.matriculasModel.matriculas = [];
+        console.error(erro);
       }
-    )
+    );
 
-    return this.Matriculas;
-
+    return this.matriculasModel;
   };
 
 }

@@ -26,7 +26,6 @@ import { APP_VERSION } from '../version';
     PoMenuModule,
     PoToolbarModule,
     PoPageModule
-
   ],
   templateUrl: './globalconfig.component.html',
   styleUrl: './globalconfig.component.css'

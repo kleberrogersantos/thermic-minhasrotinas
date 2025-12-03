@@ -1,10 +1,12 @@
+
+
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { GlobalconfigComponent } from './globalconfig/globalconfig.component';
 import { ApontamentosComponent } from './apontamentos/apontamentos.component';
 import { guardaRotas } from './guardas/guarda.rotas';
-import { guardaRotasGlobalConfig } from './guardas/guada.rotas.globalconfig';
+import { GuardaRotasGlobalConfig } from './guardas/guarda.rotas.globalconfig';
 import { guardaRotasApontamento } from './guardas/guarda.rotas.apontamentos';
 import { RastreabilidadeOPComponent } from './rastreabilidade-op/rastreabilidade-op.component';
 import { RastreabilidadeOpVinculoClienteComponent } from './rastreabilidade-op/rastreabilidade-op-vinculo-cliente/rastreabilidade-op-vinculo-cliente.component';
@@ -34,7 +36,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [guardaRotas] },
   { path: 'configuracoes', component: MenuConfiguracoesComponent, canActivate: [guardaRotas] },
   { path: 'trocarsenha', component: TrocarSenhaComponent, canActivate: [guardaRotas] },
-  { path: 'globalconfig', component: GlobalconfigComponent, canActivate: [guardaRotasGlobalConfig] },
+  { path: 'globalconfig', component: GlobalconfigComponent, canActivate: [GuardaRotasGlobalConfig] },
   { path: 'apontamentos', component: ApontamentosComponent, canActivate: [guardaRotasApontamento] },
   { path: 'menuestoque', component: MenuEstoqueComponent, canActivate: [guardaRotas] },
   { path: 'solicitacaoarmazem', component: MenuEstoqueSolicitacaoArmazemComponent, canActivate: [guardaRotas] },

@@ -58,7 +58,7 @@ export class ConsultaDocumentosComponent implements OnInit {
   logItems: Array<any> = [];
   tableFileItems: Array<any> = []
 
-  public menuItems: Array<PoMenuPanelItem> = [{ label: 'Menu', action: this.LogOff.bind(this), icon: 'ph ph-sign-out' },];
+  public menuItems: Array<PoMenuPanelItem> = [{ label: 'Menu', action: this.LogOff.bind(this), icon: 'an an-sign-out' },];
 
   @ViewChild('avalaibleDocs', { static: true }) divElement!: ElementRef;
   @ViewChild('modalFile', { static: true }) poModal!: PoModalComponent;

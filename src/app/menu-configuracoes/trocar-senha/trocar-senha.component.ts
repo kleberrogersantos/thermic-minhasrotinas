@@ -13,7 +13,6 @@ import { PoPageChangePassword, PoPageChangePasswordModule } from '@po-ui/ng-temp
     PoMenuPanelModule,
     PoDividerModule,
     PoPageChangePasswordModule,
-
   ],
   templateUrl: './trocar-senha.component.html',
   styleUrl: './trocar-senha.component.css'

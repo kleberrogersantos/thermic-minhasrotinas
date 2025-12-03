@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
     PoDividerModule,
     PoBreadcrumbModule,
     PoPageModule,
-
-
   ],
   templateUrl: './menu-producao-documentos-op.component.html',
   styleUrl: './menu-producao-documentos-op.component.css'
@@ -25,8 +23,8 @@ export class MenuProducaoDocumentosOpComponent implements OnInit {
   heightImage: number = 170
 
   menus: Array<PoMenuItem> = [
-    { label: 'UpLoad de documentos', action: () => this.navegar(1), icon: 'ph ph-upload', shortLabel: 'UpLoad' },
-    { label: 'Consulta de documentos', action: () => this.navegar(2), icon: 'ph ph-file-magnifying-glass', shortLabel: 'Consulta' },
+    { label: 'UpLoad de documentos', action: () => this.navegar(1), icon: 'an an-upload', shortLabel: 'UpLoad' },
+    { label: 'Consulta de documentos', action: () => this.navegar(2), icon: 'an an-file-magnifying-glass', shortLabel: 'Consulta' },
     { label: 'Voltar menu', action: () => this.navegar(99), icon: 'fa-solid fa-door-open', shortLabel: 'Voltar menu' }
   ]
 
