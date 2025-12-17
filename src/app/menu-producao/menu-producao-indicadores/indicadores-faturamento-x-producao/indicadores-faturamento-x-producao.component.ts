@@ -599,6 +599,17 @@ export class IndicadoresFaturamentoXProducaoComponent implements OnInit {
       };
     });
 
+    // 🔹 Linha final: Custo Total = soma dos tipos, percentual = 100%
+    this.notaCostTypesItems.push({
+      type: 'Custo Total',
+      value: Number(totalCustos.toFixed(2)),
+      percent:
+        (100).toLocaleString('pt-BR', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }) + ' %',
+    });
+
     console.log('Itens da tabela de tipos:', this.notaCostTypesItems);
   }
 
