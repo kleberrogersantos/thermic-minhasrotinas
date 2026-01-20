@@ -104,6 +104,7 @@ export class IndicadoresFaturamentoXProducaoComponent implements OnInit {
   // colunas da tabela principal
   colunasTabela: PoTableColumn[] = [
     { property: 'doc', label: 'Nota Fiscal', type: 'string', width: '120px' },
+    { property: 'item', label: 'Item', type: 'string', width: '70px' },
     { property: 'issueDate', label: 'Emissão', type: 'string', width: '110px' },
     {
       property: 'total',
@@ -411,6 +412,7 @@ export class IndicadoresFaturamentoXProducaoComponent implements OnInit {
       dateTo: dFim,
       costDetails: 'sim',
       documentNumber: row.doc, // NF filtrada no back
+      item: row.item,
     };
 
     this.groupsService.getSalesCosting(params).subscribe({

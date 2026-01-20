@@ -25,6 +25,7 @@ export interface SalesCostingParams {
   // >>> NOVOS PARÂMETROS OPCIONAIS PARA DETALHES <<<
   costDetails?: 'sim' | 'nao';
   documentNumber?: string;
+  item?: string;
 }
 
 @Injectable({
@@ -96,6 +97,7 @@ export class IndicadoresFaturamentoXProducaoService {
       dateTo,
       costDetails,
       documentNumber,
+      item,
     } = params;
 
     let qs =
@@ -103,7 +105,8 @@ export class IndicadoresFaturamentoXProducaoService {
       `&group=${encodeURIComponent(group)}` +
       `&customer=${encodeURIComponent(customer || '')}` +
       `&datefrom=${encodeURIComponent(dateFrom)}` +
-      `&dateto=${encodeURIComponent(dateTo)}`;
+      `&dateto=${encodeURIComponent(dateTo)}` +
+      `&zzaSource=true`;
 
     // >>> AQUI ENTRA O COASTDETAILS E DOCUMENTNUMBER <<<
     if (costDetails) {
@@ -115,6 +118,9 @@ export class IndicadoresFaturamentoXProducaoService {
       qs += `&documentNumber=${encodeURIComponent(documentNumber)}`;
     }
 
+    if (item) {
+      qs += `&documentItem=${encodeURIComponent(item)}`;
+    }
     return this.http.get<any>(
       `${this.url}/api/pcp/sales-costing?${qs}`,
       httpOptions
