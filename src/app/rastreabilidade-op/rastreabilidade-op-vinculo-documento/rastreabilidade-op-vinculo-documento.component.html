@@ -1,19 +1,47 @@
 <div class="po-wrapper-menu-panel">
   <po-toolbar class="po-md-6" [p-title]="mrTitulo"></po-toolbar>
 
-  <po-menu-panel [p-menus]="menuItems" p-logo="/assets/images/logo_minhasrotinas.png">
-
+  <po-menu-panel
+    [p-menus]="menuItems"
+    p-logo="/assets/images/logo_minhasrotinas.png"
+  >
   </po-menu-panel>
 
   <po-page-default [p-title]="title" [p-actions]="actions">
-    <po-loading-overlay [hidden]="isHideLoading" [p-text]="textLoadingOverlay"></po-loading-overlay>
+    <po-loading-overlay
+      [hidden]="isHideLoading"
+      [p-text]="textLoadingOverlay"
+    ></po-loading-overlay>
     <po-divider></po-divider>
 
-    <po-combo #productionCombo p-label="Ordem de Produção" [p-options]="comboItems" [ngModel]="selectedOP"
-      (ngModelChange)="selectedOP" [p-filter-mode]="opFilterMode" (p-change)="onPOSelect($event)">
+    <po-combo
+      #customerCombo
+      p-label="Cliente"
+      [p-options]="customerOptions"
+      [ngModel]="selectedCustomer"
+      (ngModelChange)="(selectedCustomer)"
+      [p-filter-mode]="opFilterMode"
+      (p-change)="onCustomerSelect($event)"
+    >
     </po-combo>
 
-    <po-table [p-columns]="documentColumns" [p-items]="documentItems"></po-table>
+    <!-- <po-combo
+      #productionCombo
+      p-label="Ordem de Produção"
+      [p-options]="comboItems"
+      [ngModel]="selectedOP"
+      (ngModelChange)="(selectedOP)"
+      [p-filter-mode]="opFilterMode"
+      (p-change)="onPOSelect($event)"
+    >
+    </po-combo> -->
 
+    <po-table
+      [p-columns]="poColumns"
+      [p-items]="poItems"
+      [p-hide-columns-manager]="true"
+      [p-height]="300"
+      [p-actions]="poActions"
+    ></po-table>
   </po-page-default>
 </div>
